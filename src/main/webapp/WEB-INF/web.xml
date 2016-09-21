@@ -5,19 +5,31 @@
   version="2.5">
   <servlet>
     <servlet-name>SaveUserDetails</servlet-name>
-    <servlet-class>com.example.appengine.bcus.SaveUserDataServlet</servlet-class>
+    <servlet-class>servlet.SaveUserDataServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
     <servlet-name>SaveUserDetails</servlet-name>
     <url-pattern>/save</url-pattern>    
   </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>PaymentOtp</servlet-name>
+    <servlet-class>servlet.PaymentAuthenticateOtpServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>PaymentOtp</servlet-name>
+    <url-pattern>/paymentOtp</url-pattern>    
+  </servlet-mapping>
  
  
   <servlet>
     <servlet-name>OrderRequest</servlet-name>
-    <servlet-class>com.example.appengine.bcus.GetOrderRequestServlet</servlet-class>
+    <servlet-class>servlet.GetOrderRequestServlet</servlet-class>
   </servlet>
+  
+  
   <servlet-mapping>
   <servlet-name>OrderRequest</servlet-name>
     <url-pattern>/order</url-pattern>
@@ -25,7 +37,7 @@
     
     <servlet>
     <servlet-name>DeletUserRequest</servlet-name>
-    <servlet-class>com.example.appengine.bcus.DeletOrderRequestServlet</servlet-class>
+    <servlet-class>servlet.DeletOrderRequestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   <servlet-name>DeletUserRequest</servlet-name>
@@ -34,7 +46,7 @@
     
     <servlet>
     <servlet-name>LoginMobileRequest</servlet-name>
-    <servlet-class>com.example.appengine.bcus.LoginMobileRequestServlet</servlet-class>
+    <servlet-class>servlet.LoginMobileRequestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   <servlet-name>LoginMobileRequest</servlet-name>

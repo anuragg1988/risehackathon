@@ -37,31 +37,36 @@ public class DataHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		UserDetailResponse userDetailResponse = new UserDetailResponse(user,"FAIL Not Authenticated","11","bcus");
+		if(DBData.getUserDetailsMap().get(user.getMobileNumber().trim()).isAuthenticated())
+		{
 		storeUser(user);
-		UserDetailResponse userDetailResponse = new UserDetailResponse(user,"SUCCESS","00","bcus");
+		 userDetailResponse = new UserDetailResponse(user,"SUCCESS","00","bcus");
+		
+		}
+		
 		return userDetailResponse;
 		
 	}
 	
 	public void storeUser(User user){
-		 DBData dbData = new DBData();
-		 if(dbData.getUserDetailsMap().get(user.getMobileNumber().trim()) == null){
-			 dbData.getUserDetailsMap().put(user.getMobileNumber().trim(), user);
+		 if(DBData.getUserDetailsMap().get(user.getMobileNumber().trim()) == null){
+			 DBData.getUserDetailsMap().put(user.getMobileNumber().trim(), user);
 		 }
 		 else{
-			 User userDetail = dbData.getUserDetailsMap().get(user.getMobileNumber().trim());
+			 User userDetail = DBData.getUserDetailsMap().get(user.getMobileNumber().trim());
 			 userDetail.getAccounts().addAll(user.getAccounts());
-			 dbData.getUserDetailsMap().put(user.getMobileNumber().trim(), userDetail);
+			 DBData.getUserDetailsMap().put(user.getMobileNumber().trim(), userDetail);
 		 }
 		 
 			    
 	}
 	
 	public User deleteUser(String mobileNumber){
-		 DBData dbData = new DBData();
-		 User user = dbData.getUserDetailsMap().get(mobileNumber.trim());
+		
+		 User user = DBData.getUserDetailsMap().get(mobileNumber.trim());
 		 if(user != null){
-			 dbData.getUserDetailsMap().remove(mobileNumber);
+			 DBData.getUserDetailsMap().remove(mobileNumber);
 		 }
 		 
 		return user;
@@ -69,15 +74,15 @@ public class DataHandler {
 			    
 	}
 	public User getUserDetail(String mobileNumber){
-		DBData dbData = new DBData();
-		return dbData.getUserDetailsMap().get(mobileNumber.trim());
+		
+		return DBData.getUserDetailsMap().get(mobileNumber.trim());
 		
 			
 	}
 	
 	public void storeUserWithOTP(String mobileNumber){
-		 DBData dbData = new DBData();
-		 dbData.getUserDetailsMap().put(mobileNumber, new User(null,mobileNumber));
+		 
+		 DBData.getUserDetailsMap().put(mobileNumber, new User(null,mobileNumber,null));
 	}
 	
 	

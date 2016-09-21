@@ -7,7 +7,9 @@ public class Order {
 	private String productId;
 	private String orderId;
 	private String mobileNumber;
-	public Order(String merchantAccountNumber, String merchantId, Amount amount, String productId, String orderId,String mobileNumber) {
+	private String status;
+	private String callbackUrl;
+	public Order(String merchantAccountNumber, String merchantId, Amount amount, String productId, String orderId,String mobileNumber,String status) {
 		super();
 		this.merchantAccountNumber = merchantAccountNumber;
 		this.merchantId = merchantId;
@@ -15,6 +17,7 @@ public class Order {
 		this.productId = productId;
 		this.orderId = orderId;
 		this.mobileNumber= mobileNumber;
+		this.status=status;
 	}
 	public String getMerchantAccountNumber() {
 		return merchantAccountNumber;
@@ -39,6 +42,19 @@ public class Order {
 		
 		// TODO Auto-generated constructor stub
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getCallbackUrl() {
+		return callbackUrl;
+	}
+	public void setCallbackUrl(String callbackUrl) {
+		this.callbackUrl = callbackUrl;
+	}
+	
 	
 
 }

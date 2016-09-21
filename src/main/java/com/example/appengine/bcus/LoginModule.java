@@ -14,29 +14,39 @@ public class LoginModule {
 		 DBData dbData = new DBData();
 		 MobileNumberLoginResponse mobileNoResponse = null;
 		 User user = dbData.getUserDetailsMap().get(mobileNumber.trim());
-		 if(user != null){
+		 if(user != null && user.isAuthenticated()){
+
 			 mobileNoResponse = new MobileNumberLoginResponse(user,"SUCCESS","00");
 		 }
 		 else{
 			 mobileNoResponse = new MobileNumberLoginResponse(user,"NEW_USER Please send OTP","11");
-			 sendOtp(mobileNumber.trim());
+			 sendOtp(mobileNumber.trim(),false,"OTP for registration login to bcus server is ");
 		 }
 		 
 		 return mobileNoResponse;
 	}
 	
 	public MobileNumberLoginResponse loginMobileWithOTP(String mobileNumber,String otp ){
-		 DBData dbData = new DBData();
+		 
 		 MobileNumberLoginResponse mobileNoResponse = null;
-		 User user = dbData.getUserDetailsMap().get(mobileNumber.trim());
-		 if(user != null){
+		 User user = DBData.getUserDetailsMap().get(mobileNumber.trim());
+		 if(user == null)
+		 {
+			 mobileNoResponse = new MobileNumberLoginResponse(user,"Fail, user does not exist","11");
+		 }
+		 else if(user != null && user.isAuthenticated()){
 			 mobileNoResponse = new MobileNumberLoginResponse(user,"SUCCESS User Already exist","00");
 		 }
+		 
 		 else{
 			 String otpSent = user.getPin();
 			 
-			 if(otp.trim().equalsIgnoreCase(otpSent.trim()))
+			 if(otp.trim().equalsIgnoreCase(otpSent.trim())){
+				 user.setAuthenticated(true);
+				 user.setPin(""); // de-neutralise pin
+				 DBData.getUserDetailsMap().put(mobileNumber.trim(),user); 
 			 mobileNoResponse = new MobileNumberLoginResponse(user,"SUCCESS User Saved and Logged in","00");
+			 }
 			 else
 			 mobileNoResponse = new MobileNumberLoginResponse(user,"Fail, wrong OTP entered","11");
 		 }
@@ -44,17 +54,26 @@ public class LoginModule {
 		 return mobileNoResponse;
 	}
 	
-	private void sendOtp(String mobileNumber){
+	public void sendOtp(String mobileNumber,boolean isAuthenticated,String messageString){
 		Twilio.init("ACd83e6d73d0c73c89b9a8010944eadef4", "3d4829cd9e8f8975e9a310b71bbc6fcc");
 		String pin = ""+((int)(Math.random()*9000)+1000);
-		DBData dbData = new DBData();
-		User user = new User();
-		user.setPin(pin);
+		User user;
+		if(isAuthenticated){
+			 user = DBData.getUserDetailsMap().get(mobileNumber.trim());;
+		}
+		else{
+			 user = new User();	
+		}
 		
-		dbData.getUserDetailsMap().put(mobileNumber.trim(),user);
+		user.setPin(pin);
+		user.setAuthenticated(isAuthenticated);
+		DBData.getUserDetailsMap().put(mobileNumber.trim(),user);
+		
 		Message message = Message
 		        .create(new PhoneNumber("+91"+mobileNumber), new PhoneNumber("+13107766392"),
-		                "OTP for registration to bcus server is "+pin)
+		                messageString+pin)
 		        .execute();
+		
+		
 	}
 }
