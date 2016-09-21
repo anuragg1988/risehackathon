@@ -26,6 +26,7 @@ public class PaymentService {
 		else{
 			orderResponse= new OrderResponse(null,"User is not authenticated",false,"NA","bcusserver");
 		}
+		if(user != null)
 		sendCallBackTOBot(orderResponse,user.getCurrentOrder().getCallbackUrl()+"?transactionId="+orderResponse.getTransactionId()+"&successMessage="+orderResponse.getSuccessMessage());
 		return orderResponse;
 		
@@ -61,7 +62,7 @@ public class PaymentService {
 		System.out.println(response.toString());
 		}
 		catch(Exception ex){
-			System.out.println(ex.printStackTrace());
+			ex.printStackTrace();
 		}
 	}
 	

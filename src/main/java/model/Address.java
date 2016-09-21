@@ -2,72 +2,65 @@ package model;
 
 public class Address {
 	
-	private String houseNumber;
-	private String society;
-	private String Street;
+	private String line1;
+	private String line2;
 	private String city;
 	private String state;
-	private String country;
-	private String pinCode;
-	public Address(String houseNumber, String society, String street, String city, String state, String country,
-			String pinCode) {
-		super();
-		this.houseNumber = houseNumber;
-		this.society = society;
-		Street = street;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.pinCode = pinCode;
-	}
+	private String zip;
+	
 	public Address() {
 		
 		// TODO Auto-generated constructor stub
 	}
-	public String getHouseNumber() {
-		return houseNumber;
+
+	public Address(String line1, String line2, String city, String state, String zip) {
+		super();
+		this.line1 = line1;
+		this.line2 = line2;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
 	}
-	public void setHouseNumber(String houseNumber) {
-		this.houseNumber = houseNumber;
+
+	public String getLine1() {
+		return line1;
 	}
-	public String getSociety() {
-		return society;
+
+	public void setLine1(String line1) {
+		this.line1 = line1;
 	}
-	public void setSociety(String society) {
-		this.society = society;
+
+	public String getLine2() {
+		return line2;
 	}
-	public String getStreet() {
-		return Street;
+
+	public void setLine2(String line2) {
+		this.line2 = line2;
 	}
-	public void setStreet(String street) {
-		Street = street;
-	}
+
 	public String getCity() {
 		return city;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	public String getState() {
 		return state;
 	}
+
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getCountry() {
-		return country;
+
+	public String getZip() {
+		return zip;
 	}
-	public void setCountry(String country) {
-		this.country = country;
+
+	public void setZip(String zip) {
+		this.zip = zip;
 	}
-	public String getPinCode() {
-		return pinCode;
-	}
-	public void setPinCode(String pinCode) {
-		this.pinCode = pinCode;
-	}
-	
-	
 	
 	
 

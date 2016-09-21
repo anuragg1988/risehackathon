@@ -38,7 +38,10 @@ public class DataHandler {
 			e.printStackTrace();
 		} 
 		UserDetailResponse userDetailResponse = new UserDetailResponse(user,"FAIL Not Authenticated","11","bcus");
-		if(DBData.getUserDetailsMap().get(user.getMobileNumber().trim()).isAuthenticated())
+		String mobileNumber = user.getMobileNumber().trim();
+		User userRetrieve = DBData.getUserDetailsMap().get(mobileNumber);
+		boolean isAuthenticated = userRetrieve.isAuthenticated();
+		if(isAuthenticated)
 		{
 		storeUser(user);
 		 userDetailResponse = new UserDetailResponse(user,"SUCCESS","00","bcus");

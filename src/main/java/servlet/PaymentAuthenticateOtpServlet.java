@@ -23,23 +23,27 @@ import model.UserDetailResponse;
 @SuppressWarnings("serial")
 public class PaymentAuthenticateOtpServlet extends HttpServlet {
 
-  @Override
-  public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    PrintWriter out = resp.getWriter();
-    out.println("Hello, world, Its a get");
-  }
+
   
   @Override
   public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    PrintWriter out = resp.getWriter();
-  
+	  resp.setContentType("application/json");
+	  
+  try{
     PaymentService paymentService = new PaymentService();
     String mobileNumber = req.getParameter("mobileNumber");
     String otp = req.getParameter("otp");
     OrderResponse orderResponse = paymentService.processPayment(mobileNumber, otp);
     ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
     String json = ow.writeValueAsString(orderResponse);
+    PrintWriter out = resp.getWriter();
     out.println(json);
+    }
+    catch(Exception ex){
+    	resp.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+    	PrintWriter out = resp.getWriter();
+    	out.println(ex);
+    }
   }
   
 }

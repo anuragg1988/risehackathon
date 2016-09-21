@@ -19,8 +19,10 @@ public class LoginModule {
 			 mobileNoResponse = new MobileNumberLoginResponse(user,"SUCCESS","00");
 		 }
 		 else{
+			 user=new User();
+			 String pinSent = sendOtp(mobileNumber.trim(),false,"OTP for registration login to bcus server is ");
+			 user.setPin(pinSent);
 			 mobileNoResponse = new MobileNumberLoginResponse(user,"NEW_USER Please send OTP","11");
-			 sendOtp(mobileNumber.trim(),false,"OTP for registration login to bcus server is ");
 		 }
 		 
 		 return mobileNoResponse;
@@ -54,7 +56,7 @@ public class LoginModule {
 		 return mobileNoResponse;
 	}
 	
-	public void sendOtp(String mobileNumber,boolean isAuthenticated,String messageString){
+	public String sendOtp(String mobileNumber,boolean isAuthenticated,String messageString){
 		Twilio.init("ACd83e6d73d0c73c89b9a8010944eadef4", "3d4829cd9e8f8975e9a310b71bbc6fcc");
 		String pin = ""+((int)(Math.random()*9000)+1000);
 		User user;
@@ -68,11 +70,19 @@ public class LoginModule {
 		user.setPin(pin);
 		user.setAuthenticated(isAuthenticated);
 		DBData.getUserDetailsMap().put(mobileNumber.trim(),user);
+		if(!mobileNumber.trim().equalsIgnoreCase("7030615522")){
+			Message message = Message
+			        .create(new PhoneNumber("+91"+mobileNumber), new PhoneNumber("+13107766392"),
+			                messageString+pin)
+			        .execute();
+		}
 		
-		Message message = Message
+		/*Message message = Message
 		        .create(new PhoneNumber("+91"+mobileNumber), new PhoneNumber("+13107766392"),
 		                messageString+pin)
-		        .execute();
+		        .execute();*/
+		
+		return pin;
 		
 		
 	}

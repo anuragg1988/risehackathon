@@ -39,17 +39,17 @@ public OrderResponse processOrder(String requestString){
 		user.setCurrentOrder(order);
 		DBData.getUserDetailsMap().put(order.getMobileNumber().trim(),user);
 	
-	sendOtpBeforePayment(order);
-	return  new OrderResponse(order,"OTP send, waiting for OTP",true,"NA","bcusserver");
+	String pinSent = sendOtpBeforePayment(order);
+	return  new OrderResponse(order,"OTP "+pinSent+"send, waiting for OTP",true,"NA","bcusserver");
 		}
 	else{
 		return  new OrderResponse(order,"User is not authenticated",true,"NA","bcusserver");
 	}
 }
 
-private void sendOtpBeforePayment(Order order){
+private String  sendOtpBeforePayment(Order order){
 	LoginModule loginModule = new LoginModule();
-	loginModule.sendOtp(order.getMobileNumber().trim(),true,"OTP for payment from bcus server is ");
+	return loginModule.sendOtp(order.getMobileNumber().trim(),true,"OTP for payment from bcus server is ");
 }
 
 public OrderResponse makePayment(Order order){
