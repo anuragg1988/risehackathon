@@ -43,6 +43,7 @@ public class DeletOrderRequestServlet extends HttpServlet {
     String mobileNumber = req.getParameter("mobileNumber");
     DataHandler dataHandler = new DataHandler();
     User user = dataHandler.deleteUser(mobileNumber);
+    
     ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
     String json = ow.writeValueAsString(user);
     PrintWriter out = resp.getWriter();

@@ -27,7 +27,7 @@ public class PaymentService {
 			orderResponse= new OrderResponse(null,"User is not authenticated",false,"NA","bcusserver");
 		}
 		if(user != null)
-		sendCallBackTOBot(orderResponse,user.getCurrentOrder().getCallbackUrl()+"?transactionId="+orderResponse.getTransactionId()+"&successMessage="+orderResponse.getSuccessMessage());
+		sendCallBackTOBot(orderResponse,user.getCurrentOrder().getCallbackUrl()+orderResponse.getTransactionId()+","+orderResponse.getSuccessMessage());
 		return orderResponse;
 		
 	}

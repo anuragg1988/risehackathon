@@ -42,6 +42,9 @@ public class SaveUserDataServlet extends HttpServlet {
     try{
     DataHandler datahandler = new DataHandler();
     UserDetailResponse userResponse = datahandler.storeData(sb.toString());
+    if(userResponse.getSuccessCode().equalsIgnoreCase("11")){
+    	resp.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+    }
     ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
     String json = ow.writeValueAsString(userResponse);
     PrintWriter out = resp.getWriter();

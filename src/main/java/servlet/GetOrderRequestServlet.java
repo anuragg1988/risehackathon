@@ -42,6 +42,9 @@ public class GetOrderRequestServlet extends HttpServlet {
     System.out.println(sb.toString());
     HandleOrderRequest orderRequest = new HandleOrderRequest();
     OrderResponse response = orderRequest.processOrder(sb.toString());
+    if(!response.getSuccessCode()){
+    	resp.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+    }
     ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
     String json = ow.writeValueAsString(response);
     PrintWriter out = resp.getWriter();

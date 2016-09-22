@@ -43,7 +43,7 @@ public OrderResponse processOrder(String requestString){
 	return  new OrderResponse(order,"OTP "+pinSent+"send, waiting for OTP",true,"NA","bcusserver");
 		}
 	else{
-		return  new OrderResponse(order,"User is not authenticated",true,"NA","bcusserver");
+		return  new OrderResponse(order,"User is not authenticated",false,"NA","bcusserver");
 	}
 }
 

@@ -34,6 +34,9 @@ public class PaymentAuthenticateOtpServlet extends HttpServlet {
     String mobileNumber = req.getParameter("mobileNumber");
     String otp = req.getParameter("otp");
     OrderResponse orderResponse = paymentService.processPayment(mobileNumber, otp);
+    if(!orderResponse.getSuccessCode()){
+    	resp.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+    }
     ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
     String json = ow.writeValueAsString(orderResponse);
     PrintWriter out = resp.getWriter();

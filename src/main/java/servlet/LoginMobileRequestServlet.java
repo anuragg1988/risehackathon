@@ -44,13 +44,16 @@ public class LoginMobileRequestServlet extends HttpServlet {
     String otp = req.getParameter("otp");
     LoginModule login = new LoginModule();
     MobileNumberLoginResponse response = null;
+    try{
     if(otp != null && !otp.equalsIgnoreCase(" ")){
     	response = login.loginMobileWithOTP(mobileNumber, otp);
     }
     else{
     	response = login.loginMobile(mobileNumber);
     }
-    try{
+    if(response.getResponseCode().equalsIgnoreCase("11")){
+    	resp.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+    }
     ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
     String json = ow.writeValueAsString(response);
     PrintWriter out = resp.getWriter();
