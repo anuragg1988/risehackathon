@@ -12,25 +12,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/com/example/appengine/bcus/SaveUserDataServlet.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/failsafe-reports/failsafe-summary.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/com/example/appengine/bcus/HandleOrderRequest$1.class" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/com/example/appengine/bcus/HandleOrderRequest$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/com/example/appengine/bcus/HandleOrderRequest.class" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/com/example/appengine/bcus/HandleOrderRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/com/example/appengine/bcus/PaymentService.class" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/com/example/appengine/bcus/PaymentService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/DeletOrderRequestServlet.class" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/DeletOrderRequestServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/GetOrderRequestServlet.class" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/GetOrderRequestServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/LoginMobileRequestServlet.class" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/LoginMobileRequestServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/PaymentAuthenticateOtpServlet.class" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/PaymentAuthenticateOtpServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/SaveUserDataServlet.class" afterPath="$PROJECT_DIR$/target/appengine-helloworld-1.0-SNAPSHOT/WEB-INF/classes/servlet/SaveUserDataServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/appengine/bcus/HandleOrderRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/appengine/bcus/HandleOrderRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/appengine/bcus/PaymentService.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/appengine/bcus/PaymentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlet/DeletOrderRequestServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlet/DeletOrderRequestServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlet/GetOrderRequestServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlet/GetOrderRequestServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlet/LoginMobileRequestServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlet/LoginMobileRequestServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlet/PaymentAuthenticateOtpServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlet/PaymentAuthenticateOtpServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlet/SaveUserDataServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlet/SaveUserDataServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.example.appengine/appengine-helloworld/pom.properties" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.example.appengine/appengine-helloworld/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     </list>
     <ignored path="appengine-helloworld.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -541,7 +524,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

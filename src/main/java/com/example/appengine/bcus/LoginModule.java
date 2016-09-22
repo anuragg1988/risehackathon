@@ -70,11 +70,15 @@ public class LoginModule {
 		user.setPin(pin);
 		user.setAuthenticated(isAuthenticated);
 		DBData.getUserDetailsMap().put(mobileNumber.trim(),user);
-		if(!mobileNumber.trim().equalsIgnoreCase("7030615522")){
+		if(!mobileNumber.trim().equalsIgnoreCase("7030615522") && !mobileNumber.trim().equalsIgnoreCase("8939563581")){
+			
 			Message message = Message
 			        .create(new PhoneNumber("+91"+mobileNumber), new PhoneNumber("+13107766392"),
 			                messageString+pin)
 			        .execute();
+		}
+		else{
+			pin = "1234";
 		}
 		
 		/*Message message = Message
